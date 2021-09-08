@@ -11,6 +11,5 @@ $controlador = new UsuarioController();
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-    var_dump($action);
-    $controlador->action;  //aquí esta el problema
+    $controlador->$action();
 }
