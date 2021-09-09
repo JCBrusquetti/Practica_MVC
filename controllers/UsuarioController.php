@@ -7,7 +7,7 @@ class UsuarioController {
         require_once 'models/Usuario.php';
 
         $usuario = new Usuario();
-        $todos_los_usuarios = $usuario->conseguirTodos();
+        $usuarios = $usuario->conseguirTodos('usuarios');
 
         require_once 'views/usuario/mostrar_todos.php';
     }

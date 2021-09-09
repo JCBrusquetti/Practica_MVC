@@ -1,50 +1,80 @@
 <?php
 require_once 'ModeloBase.php';
 class Nota extends ModeloBase {
-    public $nombre;
-    public $contenido;
+    public $usuario_id;
+    public $titulo;
+    public $descripcion;
 
     public function __construct() {
         parent::__construct();
     }
 
+
     /**
-     * Get the value of nombre
+     * Get the value of usuario_id
      */ 
-    public function getNombre()
+    public function getUsuario_id()
     {
-        return $this->nombre;
+        return $this->usuario_id;
     }
 
     /**
-     * Set the value of nombre
+     * Set the value of usuario_id
      *
      * @return  self
      */ 
-    public function setNombre($nombre)
+    public function setUsuario_id($usuario_id)
     {
-        $this->nombre = $nombre;
+        $this->usuario_id = $usuario_id;
 
         return $this;
     }
 
     /**
-     * Get the value of contenido
+     * Get the value of titulo
      */ 
-    public function getContenido()
+    public function getTitulo()
     {
-        return $this->contenido;
+        return $this->titulo;
     }
 
     /**
-     * Set the value of contenido
+     * Set the value of titulo
      *
      * @return  self
      */ 
-    public function setContenido($contenido)
+    public function setTitulo($titulo)
     {
-        $this->contenido = $contenido;
+        $this->titulo = $titulo;
 
         return $this;
+    }
+
+    /**
+     * Get the value of descripcion
+     */ 
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set the value of descripcion
+     *
+     * @return  self
+     */ 
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function guardar() {
+        $sql = "INSERT INTO notas(usuario_id, titulo, descripcion, fecha) VALUES ($this->usuario_id, '$this->titulo', '$this->descripcion', CURDATE());";
+
+        $guardado = $this->db->query($sql);
+
+        return $guardado;
     }
 }

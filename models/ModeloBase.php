@@ -9,7 +9,10 @@ class ModeloBase {
 
     
 
-    public function conseguirTodos() {
-        return "Sacando todos los usuarios";
+    public function conseguirTodos($tabla) {
+        $sql = "SELECT * FROM $tabla ORDER BY id DESC";
+        $query = $this->db->query($sql);
+
+        return $query;
     }
 }
