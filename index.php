@@ -2,6 +2,8 @@
 
 <?php
 require_once 'controllers/UsuarioController.php';
+require_once 'controllers/NotaController.php';
+
 if ($_GET['controller']) {
     $nombre_controller = $_GET['controller'].'Controller';
 }else {
